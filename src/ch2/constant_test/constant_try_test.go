@@ -25,6 +25,6 @@ func TestConstantTry(t *testing.T) {
 }
 
 func TestConstantTry1(t *testing.T) {
-	a:=7 // 0111
-	t.Log(a&Readable==Readable, a&Writable==Writable, a&Executable==Executable)
+	a := 7 // 0111
+	t.Log(a&Readable == Readable, a&Writable == Writable, a&Executable == Executable)
 }

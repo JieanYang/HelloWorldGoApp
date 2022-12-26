@@ -3,7 +3,7 @@ package condition_test
 import "testing"
 
 func TestIfMultiSec(t *testing.T) {
-	if a := 1==1; a {
+	if a := 1 == 1; a {
 		t.Log("1==1")
 	}
 
@@ -15,7 +15,7 @@ func TestIfMultiSec(t *testing.T) {
 }
 
 func TestSwitchMultiCase(t *testing.T) {
-	for i:=0; i<5; i++ {
+	for i := 0; i < 5; i++ {
 		switch i {
 		case 0, 2:
 			t.Log("Even")
@@ -28,8 +28,8 @@ func TestSwitchMultiCase(t *testing.T) {
 }
 
 func TestSwitchCaseondition(t *testing.T) {
-	for i:=0; i<5; i++ {
-		switch  {
+	for i := 0; i < 5; i++ {
+		switch {
 		case i%2 == 0:
 			t.Log("Even")
 		case i%2 == 1:
