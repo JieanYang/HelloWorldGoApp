@@ -24,3 +24,15 @@ func TestArrayTravel(t *testing.T) {
 		t.Log(element)
 	}
 }
+
+func TestArraySection(t *testing.T) {
+	arr3 := [...]int{1, 2, 3, 4, 5}
+	arr3_sec := arr3[:3]
+	arr3_sec2 := arr3[3:]
+	// arr3_sec3 := arr3[:-1] // Not support
+	// arr3_sec4 := arr3[-1:] // Not support
+	arr3_sec5 := arr3[:]
+	t.Log(arr3_sec)
+	t.Log(arr3_sec2)
+	t.Log(arr3_sec5)
+}
