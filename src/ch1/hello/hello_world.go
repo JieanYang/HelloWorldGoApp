@@ -1,10 +1,14 @@
 package main // 包，表明代码所在的模块（包）
 
-import "fmt" // 引用代码以来
+import (
+	"fmt" // 引用代码依赖
+	"os"
+)
 
 // 功能实现
 func main() {
 	fmt.Println("Hello World")
+	os.Exit(0)
 }
 
 // **应用程序入口**
