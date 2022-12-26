@@ -16,9 +16,16 @@ func TestImplicit(t *testing.T){
 }
 
 func TestPoint(t *testing.T) {
-	a:=1
+	a := 1
 	aPtr := &a
 	// aPtr = aPtr + 1 // Not support pointer operations
 	t.Log(a, aPtr)
 	t.Logf("%T %T", a, aPtr)
+}
+
+func TestString(t *testing.T) {
+	var s string // Default value is "", but not nil
+	t.Log("*" + s + "*")
+	t.Log(len(s))
+	// if s == "" {} // Check s Default value
 }
