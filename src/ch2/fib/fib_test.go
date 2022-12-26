@@ -27,3 +27,19 @@ func TestFibList(t *testing.T) {
 	}
 	fmt.Println()
 }
+
+func TestExchange(t *testing.T) {
+	// Method 1
+	// a:=1
+	// b:=2
+	// tmp:=a
+	// a=b
+	// b=tmp
+	// t.Log(a, b)
+	
+	
+	a:=1
+	b:=2
+	a, b = b, a
+	t.Log(a, b)
+}
