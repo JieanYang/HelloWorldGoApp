@@ -16,23 +16,17 @@ func (p *Pet) SpeakTo(host string) {
 	fmt.Println(" ", host)
 }
 
-type Dog struct {
+type Dog struct { // 不支持 LSP, 不支持重载
 	// Extension
-	p *Pet
+	// p *Pet
+	Pet
 }
 
 func (d *Dog) Speak() {
-	// d.p.Speak() // Not override
-	print("Wang!")
-}
-
-func (d *Dog) SpeakTo(host string) {
-	// d.p.SpeakTo(host)
-	d.Speak()
-	fmt.Println(" ", host)
+	fmt.Print("Wang !")
 }
 
 func TestDog(t *testing.T) {
 	dog := new(Dog)
-	dog.SpeakTo(("Yang"))
+	dog.SpeakTo("Yang")
 }
