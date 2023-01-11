@@ -2,6 +2,7 @@ package first_response_test
 
 import (
 	"fmt"
+	"runtime"
 	"testing"
 	"time"
 )
@@ -23,6 +24,29 @@ func FirstResponse() string {
 	return <-ch
 }
 
+func FirstResponseWithBuffer() string {
+	numOfRunner := 10
+	ch := make(chan string, numOfRunner)
+	for i := 0; i < numOfRunner; i++ {
+		go func(i int) {
+			ret := runTask(i)
+			ch <- ret
+		}(i)
+	}
+	return <-ch
+}
+
+func TestFirstResponseWithBuffer(t *testing.T) {
+	t.Log("Before:", runtime.NumGoroutine())
+	t.Log(FirstResponseWithBuffer())
+	time.Sleep(time.Second * 1)
+	t.Log("After:", runtime.NumGoroutine())
+
+}
+
 func TestFirstResponse(t *testing.T) {
+	t.Log("Before:", runtime.NumGoroutine())
 	t.Log(FirstResponse())
+	time.Sleep(time.Second * 1)
+	t.Log("After:", runtime.NumGoroutine())
 }
