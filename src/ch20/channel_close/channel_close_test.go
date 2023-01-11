@@ -66,5 +66,7 @@ func TestCloseChannel_with_close(t *testing.T) {
 	dataProducer_with_close(ch, &wg)
 	wg.Add(1)
 	dataReceiver_estimate_close(ch, &wg)
+	// wg.Add(1)
+	// dataReceiver_estimate_close(ch, &wg)
 	wg.Wait()
 }
