@@ -1,8 +1,9 @@
 package client_test
 
 import (
-	"src/freelancer_work/ansys/HelloWorldGoApp/src/ch15/series"
 	"testing"
+
+	"github.com/JieanYang/HelloWorldGoApp/src/ch15/series"
 )
 
 func TestPackage(t *testing.T) {
