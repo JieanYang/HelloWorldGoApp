@@ -1,4 +1,4 @@
-package objpool
+package obj_pool_test
 
 import (
 	"errors"
