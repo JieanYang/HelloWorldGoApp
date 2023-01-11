@@ -24,3 +24,26 @@ func TestSyncPool(t *testing.T) {
 	v2, _ := pool.Get().(int) // Get 拿出后，池里就没数据了，所以需要重新产生
 	fmt.Println(v2)
 }
+
+func TestSyncPoolInMultiGroutine(t *testing.T) { // 需要单独测试
+	pool := &sync.Pool{
+		New: func() interface{} {
+			fmt.Println("Create a new object.")
+			return 10
+		},
+	}
+
+	pool.Put(100)
+	pool.Put(100)
+	pool.Put(100)
+
+	var wg sync.WaitGroup
+	for i := 0; i < 10; i++ {
+		wg.Add(1)
+		go func(id int) {
+			fmt.Println(pool.Get())
+			wg.Done()
+		}(i)
+	}
+	wg.Wait()
+}
