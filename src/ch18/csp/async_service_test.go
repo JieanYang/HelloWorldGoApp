@@ -44,11 +44,19 @@ func AsyncServiceBufferModel() chan string {
 
 	return retCh
 }
+
 func TestAsyncService(t *testing.T) {
+	// fmt.Println(service())
+	retCh := AsyncServiceClassModel()
+	// retCh := AsyncServiceBufferModel()
+	otherTask()
+	fmt.Println(<-retCh)
+}
+
+func TestAsyncServiceWithBufferModel(t *testing.T) {
 	// fmt.Println(service())
 	// retCh := AsyncServiceClassModel()
 	retCh := AsyncServiceBufferModel()
 	otherTask()
 	fmt.Println(<-retCh)
-
 }
