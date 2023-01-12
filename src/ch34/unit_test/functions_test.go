@@ -1,6 +1,9 @@
 package unit_test_test
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestSquare(t *testing.T) {
 	inputs := [...]int{1, 2, 3}
@@ -12,4 +15,16 @@ func TestSquare(t *testing.T) {
 			t.Errorf("input is %d, the expected is %d, the actual is %d", inputs[i], expected[i], ret)
 		}
 	}
+}
+
+func TestErrorInCode(t *testing.T) {
+	fmt.Println("Start")
+	t.Error("Error")
+	fmt.Println("End")
+}
+
+func TestFailInCode(t *testing.T) {
+	fmt.Println("Start")
+	t.Fatal("Error")
+	fmt.Println("End")
 }
