@@ -131,6 +131,8 @@ func (agt *Agent) destoryCollectors() error {
 		if err = collector.Destory(); err != nil {
 			errs.CollectorErrors = append(errs.CollectorErrors,
 				errors.New(name+":"+err.Error()))
+		} else {
+			delete(agt.collectors, name)
 		}
 	}
 	if len(errs.CollectorErrors) == 0 {

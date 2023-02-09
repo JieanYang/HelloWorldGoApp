@@ -72,4 +72,5 @@ func TestAgent(t *testing.T) {
 	time.Sleep(time.Second * 1)
 	agt.Stop()
 	agt.Destory()
+	fmt.Println(agt.collectors)
 }
