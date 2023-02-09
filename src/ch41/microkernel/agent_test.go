@@ -40,6 +40,7 @@ func (c *DemoCollector) Start(agtCtx context.Context) error {
 		default:
 			time.Sleep(time.Millisecond * 50)
 			c.evtReceiver.OnEvent(Event{c.name, c.content})
+			// 开启 Collector 相应的功能：网站服务器
 		}
 	}
 }
@@ -56,6 +57,7 @@ func (c *DemoCollector) Stop() error {
 
 func (c *DemoCollector) Destory() error {
 	fmt.Println(c.name, "released resources.")
+	// 类似资源释放，删除临时数据或文件夹
 	return nil
 }
 
